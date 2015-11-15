@@ -1,5 +1,7 @@
 # Locater
 
+[![Build Status](https://travis-ci.org/sungwoncho/locater.svg?branch=master)](https://travis-ci.org/sungwoncho/locater)
+
 Search for a pattern's line number and cursor in a multi-line input.
 
 ## Install
