@@ -1,7 +1,7 @@
 {
   "name": "locater",
   "version": "0.1.0",
-  "description": "Search for a string's line number and cursor in a multi-line input",
+  "description": "Search for a pattern's line number and cursor in a multi-line input",
   "main": "./lib/locater.js",
   "scripts": {
     "test": "mocha ./test"
@@ -14,7 +14,8 @@
     "find",
     "line-number",
     "cursor",
-    "search"
+    "search",
+    "pattern"
   ],
   "author": "Sung Won Cho <mikeswcho@gmail.com> (https://sungwoncho.io/)",
   "license": "MIT",
