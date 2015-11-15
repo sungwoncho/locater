@@ -40,4 +40,9 @@ describe("locater", function() {
     expect(result[1].line).to.equal(1);
     expect(result[1].cursor).to.equal(65);
   });
+
+  it("returns an empty array when no match is present", function() {
+    var result = locater('What', "Zed's dead, baby. Zed's dead.");
+    expect(result).to.have.length(0);
+  });
 });
