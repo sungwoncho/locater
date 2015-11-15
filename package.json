@@ -1,6 +1,6 @@
 {
   "name": "locater",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Find line number and cursor of string or regex in a multi-line input",
   "main": "./lib/locater.js",
   "scripts": {
