@@ -9,7 +9,7 @@ Search for a pattern's line number and cursor in a multi-line input.
 ## Usage
 
 Locater supports string and regex matching. Below is an example showing both
-usage.
+usage with a given input.
 
 *input.txt*
 ```txt
@@ -18,6 +18,7 @@ my father gave me some advice that
 I've been turning over in my mind ever since.
 ```
 
+*js file*
 ```js
 var locater = require('locater');
 var input = fs.readFileSync('./input.txt', {encoding: 'utf8'});
