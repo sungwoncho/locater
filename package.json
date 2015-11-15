@@ -1,0 +1,29 @@
+{
+  "name": "locater",
+  "version": "0.1.0",
+  "description": "Search for a string's line number and cursor in a multi-line input",
+  "main": "./lib/locater.js",
+  "scripts": {
+    "test": "mocha ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sungwoncho/locater.git"
+  },
+  "keywords": [
+    "find",
+    "line-number",
+    "cursor",
+    "search"
+  ],
+  "author": "Sung Won Cho <mikeswcho@gmail.com> (https://sungwoncho.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sungwoncho/locater/issues"
+  },
+  "homepage": "https://github.com/sungwoncho/locater#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.3"
+  }
+}
