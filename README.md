@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/sungwoncho/locater.svg?branch=master)](https://travis-ci.org/sungwoncho/locater)
 
-Search for a pattern's line number and cursor in a multi-line input.
+Find line number and cursor of string or Regex in a multi-line input
 
 ## Install
 
