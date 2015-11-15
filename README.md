@@ -29,7 +29,7 @@ locater('my', input);
 // => [{ line: 1, cursor: 4 }, { line: 2, cursor: 1 }, { line: 3, cursor: 27 }]
 
 locater(/[a-zA-Z]{7}/, input);
-// => [{ line: 1, cursor: 7 }, { line: 3, cursor: 11 }]
+// => [{ line: 1, cursor: 7 }, { line: 1, cursor: 24 }, { line: 3, cursor: 11 }]
 ```
 
 ## Contributing
