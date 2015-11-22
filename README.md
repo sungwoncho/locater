@@ -28,8 +28,8 @@ var input = fs.readFileSync('./input.txt', {encoding: 'utf8'});
 locater('my', input);
 // => [{ line: 1, cursor: 4 }, { line: 2, cursor: 1 }, { line: 3, cursor: 27 }]
 
-locater(/[a-zA-Z]{7}/g, input);
-// => [{ line: 1, cursor: 7 }, { line: 1, cursor: 24 }, { line: 3, cursor: 11 }]
+locater(/[a-zA-Z]{7}\s/g, input);
+// => [{ line: 1, cursor: 7 }, { line: 1, cursor: 27 }, { line: 3, cursor: 11 }]
 ```
 
 ## Guide
