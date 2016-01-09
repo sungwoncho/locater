@@ -61,6 +61,32 @@ describe("locater", function() {
     });
   });
 
+  describe(".findOne", function() {
+    it("returns the position of the first match against string", function() {
+      var result = locater.findOne('world', "this is\nhello world");
+      expect(result).to.be.an('object');
+      expect(result.line).to.equal(2);
+      expect(result.cursor).to.equal(7);
+    });
+
+    it("returns null if there is no match against string", function() {
+      var result = locater.findOne('truck', "this is\nhello world");
+      expect(result).to.equal(null);
+    });
+
+    it("returns the position of the first match against regex", function() {
+      var result = locater.findOne(/\d{3}/, "this is\nexample 123 world");
+      expect(result).to.be.an('object');
+      expect(result.line).to.equal(2);
+      expect(result.cursor).to.equal(9);
+    });
+
+    it("returns null if there is no match against regex", function() {
+      var result = locater.findOne(/\d{3}/, "this is\nexample world");
+      expect(result).to.equal(null);
+    });
+  });
+
   describe(".any", function() {
     it("returns true if there is at least one match with string", function() {
       var result = locater.any('hello', 'hello world');
