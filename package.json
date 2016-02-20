@@ -1,6 +1,6 @@
 {
   "name": "locater",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Easily locate string or regex in a multi-line input",
   "main": "./lib/locater.js",
   "scripts": {
