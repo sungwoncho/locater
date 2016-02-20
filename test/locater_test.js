@@ -90,6 +90,18 @@ describe("locater", function() {
       expect(result[1].globalIndex).to.equal(38);
     });
 
+    it("also returns exact matches if getMatches option is set and regex is supplied", function() {
+      var input = 'Bacon tastes gooood.\nPork chops taste gooood.';
+      var result = locater.find(/[a-zA-Z]{6}\./g, input, {getMatches: true});
+
+      expect(result[0].line).to.equal(1);
+      expect(result[0].cursor).to.equal(14);
+      expect(result[0].match).to.equal('gooood.');
+      expect(result[1].line).to.equal(2);
+      expect(result[1].cursor).to.equal(18);
+      expect(result[1].match).to.equal('gooood.');
+    });
+
     it("matches regex and returns locations of results", function() {
       var input = fs.readFileSync(
         './test/fixtures/sample_input.txt', {encoding: 'utf8'});
