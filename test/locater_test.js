@@ -8,7 +8,6 @@ describe("locater", function() {
       var input = fs.readFileSync(
         './test/fixtures/sample_input.txt', {encoding: 'utf8'});
       var result = locater.find(['my', 'some'], input);
-      console.log(result);
 
       expect(result[0].line).to.equal(1);
       expect(result[0].cursor).to.equal(4);
