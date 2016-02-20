@@ -70,13 +70,15 @@ declared as **global**.
 
 ```js
 {
-  getGlobalIndices: false
+  getGlobalIndices: false,
+  getMatches: false
 }
 ```
 
-* `getGlobalIndices`: if set to true, locater will return a global index in the
-position. The global index is the index of the match in the context of the whole
-input.
+* `getGlobalIndices`: return a global index of the match in the position object.
+The global index is the index of the match in the context of the whole input.
+
+* `getMatches`: return exact matches for the regexes in the position object.
 
 e.g.
 
@@ -87,6 +89,13 @@ locater.find('gooood', 'Bacon tastes gooood.\nPork chops taste gooood.', {
 // => [ { line: 1, cursor: 14, globalIndex: 13 },
 //      { line: 2, cursor: 18, globalIndex: 38 } ]
 ```
+
+```js
+locater.find(/[a-zA-Z]{6}\./g, input, {getMatches: true});
+// => [ { line: 1, cursor: 14, match: 'gooood.' },
+//      { line: 2, cursor: 18, match: 'gooood.' } ]
+```
+
 
 ### findOne(pattern, input)
 
