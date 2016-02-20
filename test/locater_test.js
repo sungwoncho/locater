@@ -47,7 +47,6 @@ describe("locater", function() {
     it("matches string and returns locations of results", function() {
       var input = fs.readFileSync(
         './test/fixtures/sample_input.txt', {encoding: 'utf8'});
-        console.log(locater.find([/[a-zA-Z]{7}\s/g, 'me'], input));
       var result = locater.find('my', input);
 
       expect(result[0].line).to.equal(1);
@@ -56,6 +55,30 @@ describe("locater", function() {
       expect(result[1].cursor).to.equal(1);
       expect(result[2].line).to.equal(3);
       expect(result[2].cursor).to.equal(27);
+    });
+
+    it("does not return global indices if no option is specified", function() {
+      var input = 'Bacon tastes gooood.\nPork chops taste gooood.';
+      var result = locater.find('gooood', input);
+
+      expect(result[0].line).to.equal(1);
+      expect(result[0].cursor).to.equal(14);
+      expect(result[0].globalIndex).to.be.an('undefined');
+      expect(result[1].line).to.equal(2);
+      expect(result[1].cursor).to.equal(18);
+      expect(result[1].globalIndex).to.be.an('undefined');
+    });
+
+    it("also returns indices if getGlobalIndices option is set", function() {
+      var input = 'Bacon tastes gooood.\nPork chops taste gooood.';
+      var result = locater.find('gooood', input, {getGlobalIndices: true});
+
+      expect(result[0].line).to.equal(1);
+      expect(result[0].cursor).to.equal(14);
+      expect(result[0].globalIndex).to.equal(13);
+      expect(result[1].line).to.equal(2);
+      expect(result[1].cursor).to.equal(18);
+      expect(result[1].globalIndex).to.equal(38);
     });
 
     it("matches regex and returns locations of results", function() {
