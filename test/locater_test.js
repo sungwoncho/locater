@@ -73,8 +73,8 @@ describe("locater", function() {
     });
 
     it("matches multiple occurences of a regex in a line", function() {
-      var result = locater.find(/[aA]/g, 'kaskade - 4AM');
-      expect(result.length).to.equal(3);
+      var result = locater.find(/[a-zA-Z]{6}/g, 'kaskade - 4AM');
+      expect(result.length).to.equal(2);
     });
   });
 
