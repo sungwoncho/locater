@@ -1,7 +1,7 @@
 {
   "name": "locater",
   "version": "1.0.0",
-  "description": "Find line number and cursor of string or regex in a multi-line input",
+  "description": "Easily locate string or regex in a multi-line input",
   "main": "./lib/locater.js",
   "scripts": {
     "test": "mocha ./test"
