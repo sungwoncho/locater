@@ -32,10 +32,22 @@ describe("locater", function() {
       expect(result[2].cursor).to.equal(1);
     });
 
+    it("matches array of regexes and strings, and returns locations of results", function() {
+      var input = "Bacon tastes gooood.\nPork chops taste gooood.";
+      var result = locater.find([/[a-zA-Z]{6}\./g, 'Pork'], input);
+
+      expect(result[0].line).to.equal(1);
+      expect(result[0].cursor).to.equal(14);
+      expect(result[1].line).to.equal(2);
+      expect(result[1].cursor).to.equal(18);
+      expect(result[2].line).to.equal(2);
+      expect(result[2].cursor).to.equal(1);
+    });
+
     it("matches string and returns locations of results", function() {
       var input = fs.readFileSync(
         './test/fixtures/sample_input.txt', {encoding: 'utf8'});
-
+        console.log(locater.find([/[a-zA-Z]{7}\s/g, 'me'], input));
       var result = locater.find('my', input);
 
       expect(result[0].line).to.equal(1);
@@ -44,7 +56,6 @@ describe("locater", function() {
       expect(result[1].cursor).to.equal(1);
       expect(result[2].line).to.equal(3);
       expect(result[2].cursor).to.equal(27);
-
     });
 
     it("matches regex and returns locations of results", function() {

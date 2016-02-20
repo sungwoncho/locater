@@ -27,8 +27,20 @@ var input = fs.readFileSync('./input.txt', {encoding: 'utf8'});
 locater.find('my', input);
 // => [{ line: 1, cursor: 4 }, { line: 2, cursor: 1 }, { line: 3, cursor: 27 }]
 
+locater.find(['my', 'me'], input);
+// => [ { line: 1, cursor: 4 }, { line: 2, cursor: 1 }, { line: 2, cursor: 16 },
+//      { line: 3, cursor: 27 } ]
+
 locater.find(/[a-zA-Z]{7}\s/g, input);
 // => [{ line: 1, cursor: 7 }, { line: 1, cursor: 27 }, { line: 3, cursor: 11 }]
+
+locater.find([/[a-zA-Z]{7}\s/g, /my/g], input);
+// => [ { line: 1, cursor: 7 }, { line: 1, cursor: 27 }, { line: 1, cursor: 4 },
+//      { line: 2, cursor: 1 }, { line: 3, cursor: 11 }, { line: 3, cursor: 27 } ]
+
+locater.find([/[a-zA-Z]{7}\s/g, 'me'], input);
+//=> [ { line: 1, cursor: 7 }, { line: 1, cursor: 27 }, { line: 2, cursor: 16 },
+//     { line: 3, cursor: 11 } ]
 
 locater.findOne('my', input);
 // => { line: 1, cursor: 4 }
@@ -47,8 +59,12 @@ locater.any('mind', input);
 Returns an array of positions of occurrences of `pattern` in `input`.
 A position is represented by an object with keys `line` and `cursor`.
 
-`pattern` can be either String, Regex or an Array. If it is a Regex, it should be declared
-as global.
+`pattern` can be either String, Regex or an Array.
+
+An array can have a combination of String and Regex as its elements. For instance,
+you can provide `[/[a-zA-Z]{5}/g, 'foo']` as an argument.
+
+Any Regex should be declared as **global**.
 
 If there is no match, locater returns an empty array.
 
