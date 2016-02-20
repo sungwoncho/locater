@@ -47,7 +47,7 @@ locater.any('mind', input);
 Returns an array of positions of occurrences of `pattern` in `input`.
 A position is represented by an object with keys `line` and `cursor`.
 
-`pattern` can be either String or Regex. If it is a Regex, it should be declared
+`pattern` can be either String, Regex or an Array. If it is a Regex, it should be declared
 as global.
 
 If there is no match, locater returns an empty array.
