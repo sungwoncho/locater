@@ -81,7 +81,10 @@ there is a match, and `false` otherwise.
 
 ## Contributing
 
-Feel free to open issues with bugs and feature requests.
+Run `npm test` to run tests.
+
+Feel free to open issues with bugs and feature requests. If you submit a PR with
+a new feature, please write a simple test.
 
 ## License
 
