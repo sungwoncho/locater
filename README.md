@@ -54,19 +54,39 @@ locater.any('mind', input);
 
 ## API
 
-### find(pattern, input)
+### find(pattern, input, [options])
 
-Returns an array of positions of occurrences of `pattern` in `input`.
-A position is represented by an object with keys `line` and `cursor`.
+Returns an array of positions of occurrences of `pattern` in `input`. A position
+is represented by an object with keys `line` and `cursor`. If there is no match,
+locater returns an empty array.
 
 `pattern` can be either String, Regex or an Array.
 
 An array can have a combination of String and Regex as its elements. For instance,
-you can provide `[/[a-zA-Z]{5}/g, 'foo']` as an argument.
+you can provide `[/[a-zA-Z]{5}/g, 'foo']` as an argument. Any Regex should be
+declared as **global**.
 
-Any Regex should be declared as **global**.
+`options` is an optional. Default value is as follows:
 
-If there is no match, locater returns an empty array.
+```js
+{
+  getGlobalIndices: false
+}
+```
+
+* `getGlobalIndices`: if set to true, locater will return a global index in the
+position. The global index is the index of the match in the context of the whole
+input.
+
+e.g.
+
+```js
+locater.find('gooood', 'Bacon tastes gooood.\nPork chops taste gooood.', {
+  getGlobalIndices: true
+});
+// => [ { line: 1, cursor: 14, globalIndex: 13 },
+//      { line: 2, cursor: 18, globalIndex: 38 } ]
+```
 
 ### findOne(pattern, input)
 
