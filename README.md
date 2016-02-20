@@ -27,8 +27,8 @@ var input = fs.readFileSync('./input.txt', {encoding: 'utf8'});
 locater.find('my', input);
 // => [{ line: 1, cursor: 4 }, { line: 2, cursor: 1 }, { line: 3, cursor: 27 }]
 
-locater.find(['my', 'me'], input);
-// => [ { line: 1, cursor: 4 }, { line: 2, cursor: 1 }, { line: 2, cursor: 16 },
+locater.find(['my', 'some'], input);
+// => [ { line: 1, cursor: 4 }, { line: 2, cursor: 1 }, { line: 2, cursor: 19 },
 //      { line: 3, cursor: 27 } ]
 
 locater.find(/[a-zA-Z]{7}\s/g, input);
