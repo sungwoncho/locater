@@ -83,14 +83,12 @@ The global index is the index of the match in the context of the whole input.
 e.g.
 
 ```js
-locater.find('gooood', 'Bacon tastes gooood.\nPork chops taste gooood.', {
-  getGlobalIndices: true
-});
+var input = 'Bacon tastes gooood.\nPork chops taste gooood.';
+
+locater.find('gooood', input, {getGlobalIndices: true});
 // => [ { line: 1, cursor: 14, globalIndex: 13 },
 //      { line: 2, cursor: 18, globalIndex: 38 } ]
-```
 
-```js
 locater.find(/[a-zA-Z]{6}\./g, input, {getMatches: true});
 // => [ { line: 1, cursor: 14, match: 'gooood.' },
 //      { line: 2, cursor: 18, match: 'gooood.' } ]
